@@ -1,3 +1,6 @@
 export * from './enum-field'
 export * from './string-field'
+export * from './integer-field'
+export * from './schema-field'
+export * from './boolean-field'
 export * from './types'

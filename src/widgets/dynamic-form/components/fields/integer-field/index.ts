@@ -1,1 +1,1 @@
-export * from './integer-field.tsx'
+export * from './integer-field'

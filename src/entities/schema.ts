@@ -24,13 +24,20 @@ export interface IntegerSchema extends SchemaAnnotation {
   maximum: number
 }
 
-export interface ObjectSchema extends SchemaAnnotation {
+export interface ObjectPropertiesSchema extends SchemaAnnotation {
   type: 'object',
   properties: {
     [k: string]: Schema
   },
   required?: Array<string>
 }
+
+export interface ObjectUnionSchema extends SchemaAnnotation {
+  type: 'object',
+  [k: string]: Schema | string | undefined
+}
+
+export type ObjectSchema = ObjectPropertiesSchema | ObjectUnionSchema
 
 type AllOfItems = BooleanSchema | StringSchema | IntegerSchema | ObjectSchema
 export interface ArraySchema extends SchemaAnnotation {

@@ -1,28 +1,28 @@
 import React from 'react'
 import { TextField } from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
+import { FieldIntegerProps } from './types.ts'
 
-export const IntegerField: React.FC = () => {
+export const IntegerField: React.FC<FieldIntegerProps> = ({ schema, fieldName, required }) => {
   const form = useFormContext()
 
   return (
     <Controller
-      name="example"
+      name={fieldName}
       defaultValue={''}
       control={form.control}
       rules={{
-        required: { value: true, message: 'Обязательное поле' },
+        required: { value: Boolean(required), message: 'Обязательное поле' },
       }}
       render={({ field, fieldState }) => (
         <TextField
           fullWidth
           margin="normal"
-          label="Name"
           type="number"
+          label={schema.title ?? fieldName}
           {...field}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}
-          spellCheck="false"
         />
       )}
     />
