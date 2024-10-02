@@ -1,26 +1,25 @@
 import React from 'react'
 import { TextField } from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
+import { FieldStringProps } from './types.ts'
 
-export const Field: React.FC = () => {
+export const StringField: React.FC<FieldStringProps> = ({ fieldName, schema, required }) => {
   const form = useFormContext()
 
   return (
     <Controller
-      name="example"
+      name={fieldName}
       defaultValue={''}
       control={form.control}
       rules={{
-        required: { value: true, message: 'Обязательное поле' },
+        required: { value: Boolean(required), message: 'Обязательное поле' },
       }}
       render={({ field, fieldState }) => (
         <TextField
           fullWidth
           margin="normal"
-          label="Name"
-          type="number"
+          label={schema.title ?? fieldName}
           {...field}
-          // required
           error={fieldState.invalid}
           helperText={fieldState.error?.message}
           spellCheck="false"

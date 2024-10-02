@@ -1,0 +1,1 @@
+export const SCHEMA_URL = 'https://gist.githubusercontent.com/cucusenok/2436fbde269951d7073e32f63e489466/raw/14ef558324cdf940cae7274022bd231f17a0118e/schema.json'
