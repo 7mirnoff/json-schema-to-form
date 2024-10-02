@@ -4,6 +4,10 @@ export interface SchemaAnnotation {
   description?: string
 }
 
+export interface EnumSchema extends SchemaAnnotation {
+  enum: Array<string | number>
+}
+
 export interface BooleanSchema extends SchemaAnnotation {
   type: 'boolean'
 }
@@ -20,12 +24,6 @@ export interface IntegerSchema extends SchemaAnnotation {
   maximum: number
 }
 
-export interface ArraySchema extends SchemaAnnotation {
-  type: 'array',
-  maxItems: number,
-  minItems: number,
-  items: BooleanSchema | StringSchema | IntegerSchema
-}
 export interface ObjectSchema extends SchemaAnnotation {
   type: 'object',
   properties: {
@@ -34,6 +32,13 @@ export interface ObjectSchema extends SchemaAnnotation {
   required?: Array<string>
 }
 
+type AllOfItems = BooleanSchema | StringSchema | IntegerSchema | ObjectSchema
+export interface ArraySchema extends SchemaAnnotation {
+  type: 'array',
+  maxItems: number,
+  minItems: number,
+  items: AllOfItems
+}
 
 export type Schema =
   | BooleanSchema
@@ -41,3 +46,4 @@ export type Schema =
   | IntegerSchema
   | ArraySchema
   | ObjectSchema
+  | EnumSchema

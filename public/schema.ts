@@ -87,5 +87,6 @@ export const data = {
     'streetAddress',
     'city',
     'state',
+    'gender'
   ],
 }

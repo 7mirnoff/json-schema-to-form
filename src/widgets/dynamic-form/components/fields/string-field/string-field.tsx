@@ -22,7 +22,6 @@ export const StringField: React.FC<FieldStringProps> = ({ fieldName, schema, req
           {...field}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}
-          spellCheck="false"
         />
       )}
     />

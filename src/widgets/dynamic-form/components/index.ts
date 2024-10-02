@@ -1,1 +1,1 @@
-export * from './fields/string-field'
+export * from './fields'
