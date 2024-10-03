@@ -3,7 +3,7 @@ import { FieldBooleanProps } from './types.ts'
 import { Controller, useFormContext } from 'react-hook-form'
 import { Checkbox, FormControlLabel } from '@mui/material'
 
-export const BooleanField: React.FC<FieldBooleanProps> = ({ schema, fieldName }) => {
+export const BooleanField: React.FC<FieldBooleanProps> = ({ fieldName, title }) => {
   const form = useFormContext()
 
   return (
@@ -23,7 +23,7 @@ export const BooleanField: React.FC<FieldBooleanProps> = ({ schema, fieldName })
               }}
             />
           }
-          label={schema.title ?? fieldName}
+          label={title}
         />
       )}
     />

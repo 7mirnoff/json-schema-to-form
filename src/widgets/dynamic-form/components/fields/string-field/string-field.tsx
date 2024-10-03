@@ -3,7 +3,7 @@ import { TextField } from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 import { FieldStringProps } from './types.ts'
 
-export const StringField: React.FC<FieldStringProps> = ({ fieldName, schema, required }) => {
+export const StringField: React.FC<FieldStringProps> = ({ fieldName, title, required }) => {
   const form = useFormContext()
 
   return (
@@ -18,7 +18,7 @@ export const StringField: React.FC<FieldStringProps> = ({ fieldName, schema, req
         <TextField
           fullWidth
           margin="normal"
-          label={schema.title ?? fieldName}
+          label={title}
           {...field}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}

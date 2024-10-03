@@ -3,7 +3,7 @@ import { TextField } from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 import { FieldIntegerProps } from './types.ts'
 
-export const IntegerField: React.FC<FieldIntegerProps> = ({ schema, fieldName, required }) => {
+export const IntegerField: React.FC<FieldIntegerProps> = ({ fieldName, title, required }) => {
   const form = useFormContext()
 
   return (
@@ -19,7 +19,7 @@ export const IntegerField: React.FC<FieldIntegerProps> = ({ schema, fieldName, r
           fullWidth
           margin="normal"
           type="number"
-          label={schema.title ?? fieldName}
+          label={title}
           {...field}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}

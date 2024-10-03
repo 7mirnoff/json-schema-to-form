@@ -3,7 +3,7 @@ import { FieldEnumProps } from './types.ts'
 import { Controller, useFormContext } from 'react-hook-form'
 import { MenuItem, TextField } from '@mui/material'
 
-export const EnumField: React.FC<FieldEnumProps> = ({ fieldName, schema, required }) => {
+export const EnumField: React.FC<FieldEnumProps> = ({ fieldName, title, schema, required }) => {
   const form = useFormContext()
 
   return (
@@ -19,7 +19,7 @@ export const EnumField: React.FC<FieldEnumProps> = ({ fieldName, schema, require
           select
           fullWidth
           margin="normal"
-          label={schema.title ?? fieldName}
+          label={title}
           {...field}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}

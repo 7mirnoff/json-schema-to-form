@@ -8,7 +8,7 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({ schema, onSubmit }) =>
   const form = useForm<FieldValues>()
 
   const rootRequired = useMemo(() => {
-    if ('required' in schema) {
+    if ('required' in schema && Array.isArray(schema.required)) {
       return new Set(schema.required)
     }
   }, [schema])
@@ -16,7 +16,7 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({ schema, onSubmit }) =>
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <SchemaField schema={schema} path='' required={rootRequired} />
+        <SchemaField schema={schema} path='' title='Форма' required={rootRequired} />
         <Toolbar sx={{ justifyContent: "center" }}>
           <Button type="submit" variant="contained">Отправить</Button>
         </Toolbar>
