@@ -3,6 +3,7 @@ import { FieldArrayProps } from './types.ts'
 import { useFieldArray, useFormContext } from 'react-hook-form'
 import { SchemaField } from '../schema-field'
 import { Box, Button, Typography } from '@mui/material'
+import { createArrayItemByType } from '../../../utils.ts'
 
 export const ArrayField: React.FC<FieldArrayProps> = ({ fieldName, schema, title }) => {
   const { control } = useFormContext()
@@ -18,15 +19,12 @@ export const ArrayField: React.FC<FieldArrayProps> = ({ fieldName, schema, title
   }, [schema])
 
   const addField = () => {
-    append('')
+    append(createArrayItemByType(schema.items))
   }
   const removeField = (index: number) => {
-    console.log(index)
     remove(index)
   }
 
-  // schema.items.
-  // name={`items.${index}.displayName`}
   return (
     <div>
       <Typography variant="h6" component="h2">

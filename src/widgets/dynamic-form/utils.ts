@@ -1,4 +1,4 @@
-import { EnumSchema, ObjectPropertiesSchema, ObjectSchema, Schema } from '@entities'
+import { ArraySchema, EnumSchema, ObjectPropertiesSchema, ObjectSchema, Schema } from '@entities'
 
 export const ANNOTATION_KEYS = ['type', 'title', 'enum', 'description']
 
@@ -12,4 +12,8 @@ export function isEnumSchema(schema: Schema): schema is EnumSchema {
 
 export function filterAnnotationKeys(entity: [string, Schema | string | undefined]): entity is [string, Schema] {
   return !ANNOTATION_KEYS.includes(entity[0])
+}
+
+export function createArrayItemByType(scheme: ArraySchema['items']) {
+  return scheme.type === 'object' ? {} : ''
 }

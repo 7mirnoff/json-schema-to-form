@@ -21,6 +21,15 @@ export const IntegerField: React.FC<FieldIntegerProps> = ({ fieldName, title, re
           type="number"
           label={title}
           {...field}
+          onChange={(evt) => {
+            const { value } = evt.target
+
+            const validInput = /^-?\d*$/
+            if (validInput.test(value) || value === '') {
+              const parsedInt = value === '' ? undefined : parseInt(value, 10)
+              field.onChange(parsedInt)
+            }
+          }}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}
         />
