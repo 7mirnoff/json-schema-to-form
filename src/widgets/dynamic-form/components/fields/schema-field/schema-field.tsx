@@ -51,7 +51,11 @@ export const SchemaField: React.FC<FieldSchemaProps> = ({ path, schema, title, r
       return <Box width="100%">
         {title && <Typography>{title}</Typography>}
         {entries.map(([key, schema]) => {
-          const entryPath = fieldName.endsWith('.') ? `${fieldName}${key}` : `${fieldName}.${key}`
+          let entryPath = key
+          if (fieldName) {
+            entryPath = fieldName.endsWith('.') ? `${fieldName}${key}` : `${fieldName}.${key}`
+          }
+
           return <Fragment key={key}>
             {renderFields(schema, entryPath, key, currentRequired)}
           </Fragment>

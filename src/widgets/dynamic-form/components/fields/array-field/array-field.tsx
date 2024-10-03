@@ -32,10 +32,9 @@ export const ArrayField: React.FC<FieldArrayProps> = ({ fieldName, schema, title
       <Typography variant="h6" component="h2">
         {title}
       </Typography>
-      {fields.map((_, index) => {
+      {fields.map((field, index) => {
         const path = `${fieldName}.${index}.`
-        console.log(path)
-        return <Box key={path} display="flex" gap={2}>
+        return <Box key={field.id} display="flex" gap={2}>
           <Box mt={4}><Typography>{index + 1}</Typography></Box>
           <Box flexGrow={1}>
             <SchemaField
