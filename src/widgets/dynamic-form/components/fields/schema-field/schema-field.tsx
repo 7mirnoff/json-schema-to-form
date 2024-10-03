@@ -12,28 +12,28 @@ import { filterAnnotationKeys, isEnumSchema, isPropertiesSchema } from '../../..
 export const SchemaField: React.FC<FieldSchemaProps> = ({ path, schema, title, required }) => {
   function renderFields(schema: Schema, fieldName: string, title = '', required?: Set<string>): React.ReactElement {
     if (isEnumSchema(schema)) {
-      const isRequired = required?.has(fieldName)
+      const isRequired = required?.has(title)
 
       return <EnumField fieldName={fieldName} title={title} schema={schema} required={isRequired} />
     }
 
     if (schema.type === 'array') {
-      const isRequired = required?.has(fieldName)
+      const isRequired = required?.has(title)
       return <ArrayField fieldName={fieldName} title={title} schema={schema} required={isRequired} />
     }
 
     if (schema.type === 'string') {
-      const isRequired = required?.has(fieldName)
+      const isRequired = required?.has(title)
       return <StringField fieldName={fieldName} title={title} schema={schema} required={isRequired} />
     }
 
     if (schema.type === 'integer') {
-      const isRequired = required?.has(fieldName)
+      const isRequired = required?.has(title)
       return <IntegerField fieldName={fieldName} title={title} schema={schema} required={isRequired} />
     }
 
     if (schema.type === 'boolean') {
-      const isRequired = required?.has(fieldName)
+      const isRequired = required?.has(title)
       return <BooleanField fieldName={fieldName} title={title} schema={schema} required={isRequired} />
     }
 

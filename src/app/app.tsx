@@ -2,6 +2,9 @@ import { DynamicForm, type SubmitHandler, type FieldValues } from '@widgets'
 import { useEffect, useState } from 'react'
 import { SCHEMA_URL } from '@const'
 import { Schema } from '@entities'
+import { data } from '../../public/schema.ts'
+
+const FROM_LOCAL_DATA = true
 
 export function App() {
   const handleSubmit: SubmitHandler<FieldValues> = (data) => console.log(data)
@@ -10,6 +13,11 @@ export function App() {
   const [error, setError] = useState(false)
 
   useEffect(() => {
+    if (FROM_LOCAL_DATA) {
+      setSchema(data as Schema)
+      return
+    }
+
     setLoading(true)
     fetch(SCHEMA_URL)
       .then(response => response.json())

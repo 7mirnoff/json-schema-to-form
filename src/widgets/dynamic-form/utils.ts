@@ -1,6 +1,6 @@
 import { ArraySchema, EnumSchema, ObjectPropertiesSchema, ObjectSchema, Schema } from '@entities'
 
-export const ANNOTATION_KEYS = ['type', 'title', 'enum', 'description']
+export const ANNOTATION_KEYS = ['type', 'title', 'enum', 'description', 'required']
 
 export function isPropertiesSchema(schema: ObjectSchema): schema is ObjectPropertiesSchema {
   return typeof schema.properties === 'object'

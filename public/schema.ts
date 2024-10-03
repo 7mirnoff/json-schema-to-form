@@ -3,6 +3,8 @@ export const data = {
   'properties': {
     'streetAddress': {
       'type': 'string',
+      'minLength': 2,
+      'maxLength': 5
     },
     'city': {
       'type': 'string',
@@ -42,6 +44,8 @@ export const data = {
           },
           'age': {
             'type': 'integer',
+            'minimum': 5,
+            'maximum': 10
           },
           'name': {
             'type': 'string',
@@ -78,8 +82,10 @@ export const data = {
             'retired': {
               'type': 'boolean',
             },
+            'required': ['age', 'name']
           },
         },
+        required: ['age']
       },
     },
   },
