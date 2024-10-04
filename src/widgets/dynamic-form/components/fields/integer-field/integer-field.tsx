@@ -9,7 +9,7 @@ export const IntegerField: React.FC<FieldIntegerProps> = ({ schema, fieldName, t
   return (
     <Controller
       name={fieldName}
-      defaultValue={''}
+      defaultValue={null}
       control={form.control}
       rules={{
         required: { value: Boolean(required), message: 'Обязательное поле' },
@@ -25,6 +25,7 @@ export const IntegerField: React.FC<FieldIntegerProps> = ({ schema, fieldName, t
           required={required}
           label={title}
           {...field}
+          value={field.value ?? ''}
           onChange={(evt) => {
             const { value } = evt.target
 

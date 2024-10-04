@@ -15,5 +15,5 @@ export function filterAnnotationKeys(entity: [string, Schema | string | undefine
 }
 
 export function createArrayItemByType(scheme: ArraySchema['items']) {
-  return scheme.type === 'object' ? {} : ''
+  return scheme.type === 'object' ? {} : ' '
 }

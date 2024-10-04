@@ -9,7 +9,7 @@ export const StringField: React.FC<FieldStringProps> = ({ schema, fieldName, tit
   return (
     <Controller
       name={fieldName}
-      defaultValue={''}
+      defaultValue={null}
       control={form.control}
       rules={{
         required: { value: Boolean(required), message: 'Обязательное поле' },
@@ -24,6 +24,7 @@ export const StringField: React.FC<FieldStringProps> = ({ schema, fieldName, tit
           label={title}
           required={required}
           {...field}
+          value={field.value ?? ''}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}
         />
