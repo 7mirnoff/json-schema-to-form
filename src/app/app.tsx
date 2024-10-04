@@ -24,7 +24,7 @@ export function App() {
       .then(data => setSchema(data))
       .catch(() => setError(true))
       .finally(() => setLoading(false))
-  }, []) // TODO
+  }, [])
 
   if (error) {
     return <p>Ошибка</p>

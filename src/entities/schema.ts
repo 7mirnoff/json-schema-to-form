@@ -42,8 +42,8 @@ export type ObjectSchema = ObjectPropertiesSchema | ObjectUnionSchema
 type AllOfItems = BooleanSchema | StringSchema | IntegerSchema | ObjectSchema
 export interface ArraySchema extends SchemaAnnotation {
   type: 'array',
-  maxItems: number,
-  minItems: number,
+  maxItems?: number,
+  minItems?: number,
   items: AllOfItems
 }
 

@@ -22,7 +22,7 @@ export const data = {
     'phones': {
       'type': 'array',
       'maxItems': 3,
-      'minItems': 1,
+      'minItems': 2,
       'items': {
         'type': 'string',
         'minLength': 1,
@@ -70,19 +70,21 @@ export const data = {
           },
           'grandMother': {
             'type': 'object',
-            'name': {
-              'type': 'string',
+            'properties': {
+              'name': {
+                'type': 'string',
+              },
+              'age': {
+                'type': 'integer',
+              },
+              'secondName': {
+                'type': 'string',
+              },
+              'retired': {
+                'type': 'boolean',
+              },
             },
-            'age': {
-              'type': 'integer',
-            },
-            'secondName': {
-              'type': 'string',
-            },
-            'retired': {
-              'type': 'boolean',
-            },
-            'required': ['age', 'name']
+            'required': ['age', 'name', 'retired']
           },
         },
         required: ['age']
