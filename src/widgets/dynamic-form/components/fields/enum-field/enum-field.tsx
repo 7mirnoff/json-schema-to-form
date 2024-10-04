@@ -18,7 +18,9 @@ export const EnumField: React.FC<FieldEnumProps> = ({ fieldName, title, schema, 
         <TextField
           select
           fullWidth
-          margin="normal"
+          margin="dense"
+          size="small"
+          required={required}
           label={title}
           {...field}
           error={fieldState.invalid}

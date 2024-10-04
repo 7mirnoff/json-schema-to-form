@@ -19,8 +19,10 @@ export const StringField: React.FC<FieldStringProps> = ({ schema, fieldName, tit
       render={({ field, fieldState }) => (
         <TextField
           fullWidth
-          margin="normal"
+          margin="dense"
+          size="small"
           label={title}
+          required={required}
           {...field}
           error={fieldState.invalid}
           helperText={fieldState.error?.message}

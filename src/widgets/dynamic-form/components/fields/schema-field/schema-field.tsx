@@ -49,7 +49,7 @@ export const SchemaField: React.FC<FieldSchemaProps> = ({ path, schema, title, r
       }
 
       return <Box width="100%">
-        {title && <Typography>{title}</Typography>}
+        {title && <Typography variant="h6" component="h2">{title}</Typography>}
         {entries.map(([key, schema]) => {
           let entryPath = key
           if (fieldName) {

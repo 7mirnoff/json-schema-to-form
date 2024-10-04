@@ -48,7 +48,7 @@ export const ArrayField: React.FC<FieldArrayProps> = ({ fieldName, schema, title
       {fields.map((field, index) => {
         const path = `${fieldName}.${index}.`
         return <Box key={field.id} display="flex" gap={2}>
-          <Box mt={4}><Typography>{index + 1}</Typography></Box>
+          <Box mt={2}><Typography>{index + 1}</Typography></Box>
           <Box flexGrow={1}>
             <SchemaField
               schema={schema.items}
@@ -56,7 +56,7 @@ export const ArrayField: React.FC<FieldArrayProps> = ({ fieldName, schema, title
               required={itemsRequired}
             />
           </Box>
-          <Box mt={2}>
+          <Box mt={1}>
             <Button onClick={() => {
               removeField(index)
             }} variant="outlined">
@@ -65,7 +65,7 @@ export const ArrayField: React.FC<FieldArrayProps> = ({ fieldName, schema, title
           </Box>
         </Box>
       })}
-      <Box display="flex" alignItems='center' gap={2}>
+      <Box display="flex" alignItems='center' gap={2} mt={1}>
         <Button onClick={addField} variant="outlined"
                 disabled={hasMaxItems}>Add</Button>
         {hasMaxItems &&

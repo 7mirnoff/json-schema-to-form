@@ -15,8 +15,8 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({ schema, onSubmit }) =>
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <SchemaField schema={schema} path='' title='Форма' required={rootRequired} />
+      <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
+        <SchemaField schema={schema} path='' title='dynamicForm' required={rootRequired} />
         <Toolbar sx={{ justifyContent: "center" }}>
           <Button type="submit" variant="contained">Отправить</Button>
         </Toolbar>

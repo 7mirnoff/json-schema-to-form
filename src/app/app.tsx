@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { SCHEMA_URL } from '@const'
 import { Schema } from '@entities'
 import { data } from '../../public/schema.ts'
+import { Container } from '@mui/material'
 
 const FROM_LOCAL_DATA = true
 
@@ -39,8 +40,8 @@ export function App() {
   }
 
   return (
-    <>
+    <Container maxWidth="sm">
       <DynamicForm schema={schema} onSubmit={handleSubmit} />
-    </>
+    </Container>
   )
 }

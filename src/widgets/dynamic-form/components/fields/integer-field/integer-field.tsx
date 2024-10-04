@@ -19,8 +19,10 @@ export const IntegerField: React.FC<FieldIntegerProps> = ({ schema, fieldName, t
       render={({ field, fieldState }) => (
         <TextField
           fullWidth
-          margin="normal"
+          margin="dense"
+          size="small"
           type="number"
+          required={required}
           label={title}
           {...field}
           onChange={(evt) => {

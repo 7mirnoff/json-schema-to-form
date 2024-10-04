@@ -1,17 +1,9 @@
 export const data = {
   'type': 'object',
   'properties': {
-    'streetAddress': {
-      'type': 'string',
-      'minLength': 2,
-      'maxLength': 5
-    },
-    'city': {
-      'type': 'string',
-    },
-    'state': {
-      'type': 'string',
-    },
+    'streetAddress': { 'type': 'string' },
+    'city': { 'type': 'string' },
+    'state': { 'type': 'string' },
     'gender': {
       'enum': [
         'male',
@@ -22,13 +14,14 @@ export const data = {
     'phones': {
       'type': 'array',
       'maxItems': 3,
-      'minItems': 2,
+      'minItems': 1,
       'items': {
         'type': 'string',
         'minLength': 1,
         'maxLength': 255,
       },
     },
+
     'parents': {
       'type': 'array',
       'minItems': 0,
@@ -42,59 +35,26 @@ export const data = {
               'father',
             ],
           },
-          'age': {
-            'type': 'integer',
-            'minimum': 5,
-            'maximum': 10
-          },
-          'name': {
-            'type': 'string',
-          },
-          'secondName': {
-            'type': 'string',
-          },
+          'age': { 'type': 'integer' },
+          'name': { 'type': 'string' },
+          'secondName': { 'type': 'string' },
           'grandFather': {
             'type': 'object',
-            'name': {
-              'type': 'string',
-            },
-            'age': {
-              'type': 'integer',
-            },
-            'secondName': {
-              'type': 'string',
-            },
-            'retired': {
-              'type': 'boolean',
-            },
+            'name': { 'type': 'string' },
+            'age': { 'type': 'integer' },
+            'secondName': { 'type': 'string' },
+            'retired': { 'type': 'boolean' },
           },
           'grandMother': {
             'type': 'object',
-            'properties': {
-              'name': {
-                'type': 'string',
-              },
-              'age': {
-                'type': 'integer',
-              },
-              'secondName': {
-                'type': 'string',
-              },
-              'retired': {
-                'type': 'boolean',
-              },
-            },
-            'required': ['age', 'name', 'retired']
+            'name': { 'type': 'string' },
+            'age': { 'type': 'integer' },
+            'secondName': { 'type': 'string' },
+            'retired': { 'type': 'boolean' },
           },
         },
-        required: ['age']
       },
     },
   },
-  'required': [
-    'streetAddress',
-    'city',
-    'state',
-    'gender'
-  ],
+  'required': ['streetAddress', 'city', 'state'],
 }
