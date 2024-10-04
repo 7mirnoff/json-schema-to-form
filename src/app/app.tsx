@@ -1,4 +1,4 @@
-import { DynamicForm, type SubmitHandler, type FieldValues } from '@widgets'
+import { DynamicForm, type FieldValues, ResultDialog } from '@widgets'
 import { useEffect, useState } from 'react'
 import { SCHEMA_URL } from '@const'
 import { Schema } from '@entities'
@@ -8,7 +8,7 @@ import { schema as data } from '@data'
 const FROM_LOCAL_DATA = true
 
 export function App() {
-  const handleSubmit: SubmitHandler<FieldValues> = (data) => console.log(data)
+  const [formResult, setFormResult] = useState<FieldValues | undefined>()
   const [schema, setSchema] = useState<Schema | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
@@ -27,6 +27,15 @@ export function App() {
       .finally(() => setLoading(false))
   }, [])
 
+  function handleSubmit(data: FieldValues) {
+    console.log(data)
+    setFormResult(data)
+  }
+
+  function closeDialog() {
+    setFormResult(undefined)
+  }
+
   if (error) {
     return <p>Ошибка</p>
   }
@@ -42,6 +51,7 @@ export function App() {
   return (
     <Container maxWidth="sm">
       <DynamicForm schema={schema} onSubmit={handleSubmit} />
+      <ResultDialog data={formResult} onClose={closeDialog} />
     </Container>
   )
 }
