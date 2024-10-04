@@ -11,6 +11,7 @@ export default defineConfig({
       '@entities': path.resolve(__dirname, './src/entities'),
       '@widgets': path.resolve(__dirname, './src/widgets'),
       '@const': path.resolve(__dirname, './src/const'),
+      '@data': path.resolve(__dirname, './src/data'),
     }
   },
 })

@@ -24,7 +24,8 @@
       "@": ["src/"],
       "@entities": ["src/entities/"],
       "@widgets": ["src/widgets/"],
-      "@const": ["src/const/"]
+      "@const": ["src/const/"],
+      "@data": ["src/data/"]
     }
   },
   "include": ["src"]

@@ -2,8 +2,8 @@ import { DynamicForm, type SubmitHandler, type FieldValues } from '@widgets'
 import { useEffect, useState } from 'react'
 import { SCHEMA_URL } from '@const'
 import { Schema } from '@entities'
-import { data } from '../../public/schema.ts'
 import { Container } from '@mui/material'
+import { schema as data } from '@data'
 
 const FROM_LOCAL_DATA = true
 
